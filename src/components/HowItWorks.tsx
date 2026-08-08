@@ -14,6 +14,7 @@ export default function HowItWorks() {
                 src={howItWorks.image}
                 alt={howItWorks.imageCaption}
                 loading="lazy"
+                decoding="async"
                 className="aspect-[4/5] w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
