@@ -1,5 +1,5 @@
 import { MapPin } from 'lucide-react'
-import { howItWorks, brand } from '../data/site'
+import { howItWorks, brand, thumb } from '../data/site'
 import Reveal from './Reveal'
 
 export default function HowItWorks() {
@@ -11,9 +11,10 @@ export default function HowItWorks() {
           <div className="relative">
             <div className="overflow-hidden rounded-[1.75rem]">
               <img
-                src={howItWorks.image}
+                src={thumb(howItWorks.image, 960)}
                 alt={howItWorks.imageCaption}
                 loading="lazy"
+                decoding="async"
                 className="aspect-[4/5] w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

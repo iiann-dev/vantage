@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, type MotionValue } from 'motion/react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { moments } from '../data/site'
+import { moments, thumb } from '../data/site'
 import Reveal from './Reveal'
 
 function Parallax({
@@ -19,9 +19,10 @@ function Parallax({
       className="group relative aspect-[4/5] w-[78vw] shrink-0 snap-center overflow-hidden rounded-[1.75rem] sm:w-[52vw] md:w-[38vw] lg:w-[30vw] xl:w-[25vw]"
     >
       <motion.img
-        src={item.image}
+        src={thumb(item.image, 960)}
         alt={item.title}
         loading="lazy"
+        decoding="async"
         className="h-full w-full scale-[1.12] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.18]"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />

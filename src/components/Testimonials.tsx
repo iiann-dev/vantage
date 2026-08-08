@@ -95,6 +95,7 @@ export default function Testimonials() {
                         src={t.avatar}
                         alt={t.name}
                         loading="lazy"
+                        decoding="async"
                         className="size-11 rounded-full object-cover ring-2 ring-white/15"
                       />
                       <div>

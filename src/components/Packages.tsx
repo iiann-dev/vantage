@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
-import { brand, packages } from '../data/site'
+import { brand, packages, thumb } from '../data/site'
 import Reveal from './Reveal'
 
 const featured = packages.featured
@@ -28,9 +28,10 @@ export default function Packages() {
               className="group relative block h-full min-h-[30rem] overflow-hidden rounded-[1.75rem] transition-transform duration-500 ease-out hover:-translate-y-2 xl:min-h-[42rem]"
             >
               <img
-                src={featured.image}
+                src={thumb(featured.image, 1280)}
                 alt={featured.name}
                 loading="lazy"
+                decoding="async"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
@@ -83,9 +84,10 @@ export default function Packages() {
                 className="group relative block h-full min-h-[24rem] overflow-hidden rounded-[1.75rem] transition-transform duration-500 ease-out hover:-translate-y-2"
               >
                 <img
-                  src={p.image}
+                  src={thumb(p.image, 960)}
                   alt={p.name}
                   loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />

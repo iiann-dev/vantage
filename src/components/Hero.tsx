@@ -1,13 +1,20 @@
 import { useEffect, useState } from 'react'
 import { motion, useScroll, useTransform } from 'motion/react'
 import { ArrowRight, MapPin, Star } from 'lucide-react'
-import { tours, hero, brand } from '../data/site'
+import { tours, hero, brand, thumb } from '../data/site'
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 export default function Hero() {
   const [active, setActive] = useState(0)
   const [paused, setPaused] = useState(false)
+  // Slide 0 loads eagerly; slides 1-2 idle-prefetch ~1.8s after first paint.
+  const [preloaded, setPreloaded] = useState<boolean[]>([true, false, false])
+  useEffect(() => {
+    setPreloaded((p) => p.map((v, i) => v || i === active))
+    const t = window.setTimeout(() => setPreloaded([true, true, true]), 1800)
+    return () => window.clearTimeout(t)
+  }, [active])
   const { scrollY } = useScroll()
   const proofY = useTransform(scrollY, [0, 700], [0, 60])
   const fade = useTransform(scrollY, [0, 520], [1, 0])
@@ -36,8 +43,9 @@ export default function Hero() {
           aria-hidden={i !== active}
         >
           <img
-            src={t.image}
+            src={preloaded[i] ? (i === 0 ? t.image : thumb(t.image, 1280)) : undefined}
             alt={t.name}
+            decoding="async"
             className="kenburns h-full w-full object-cover"
             fetchPriority={i === 0 ? 'high' : 'auto'}
           />
@@ -122,6 +130,7 @@ export default function Hero() {
                       src={a}
                       alt=""
                       loading="lazy"
+                      decoding="async"
                       className="size-10 rounded-full border-2 border-ink object-cover"
                     />
                   ))}
@@ -175,7 +184,7 @@ export default function Hero() {
                   i === active ? 'ring-2 ring-ember/80' : 'ring-1 ring-white/15'
                 }`}
               >
-                <img src={t.image} alt="" loading="lazy" className="size-full object-cover" />
+                <img src={thumb(t.image, 960)} alt="" loading="lazy" decoding="async" className="size-full object-cover" />
               </span>
               <span className="min-w-0">
                 <span className="block truncate text-sm font-semibold text-mist">{t.name}</span>
@@ -201,7 +210,7 @@ export default function Hero() {
               }`}
             >
               <span className="relative block h-28 w-full overflow-hidden rounded-xl">
-                <img src={t.image} alt={t.name} loading="lazy" className="size-full w-full object-cover" />
+                <img src={thumb(t.image, 960)} alt={t.name} loading="lazy" decoding="async" className="size-full w-full object-cover" />
               </span>
               <span className="mt-3 block text-sm font-semibold text-mist">{t.name}</span>
               <span className="mt-0.5 block text-xs text-mist-dim">{t.desc}</span>
@@ -216,6 +225,7 @@ export default function Hero() {
                 src={a}
                 alt=""
                 loading="lazy"
+                decoding="async"
                 className="size-9 rounded-full border-2 border-ink object-cover"
               />
             ))}

@@ -266,7 +266,7 @@ export const finalCta = {
   cta: 'Request this journey',
   secondary: 'Ask us anything',
   image:
-    'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=80',
+    'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1600&q=75',
 }
 
 // ---------- FOOTER ----------
@@ -280,3 +280,11 @@ export const footer = {
   attribution: 'Photography by contributors on Wikimedia Commons & Unsplash.',
   legal: '© 2026 Vantage. Crafted in East Java.',
 }
+
+// ------------------------------------------------------------
+// UTILITY — downsize any Wikimedia thumbnail on demand.
+// Keeps the single-file rebrand intact: components pick the
+// width that matches their display size, never 1920px @ everything.
+// ------------------------------------------------------------
+export const thumb = (url: string, px: number) =>
+  url.includes('/1920px-') ? url.replace('/1920px-', `/${px}px-`) : url

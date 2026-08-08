@@ -14,6 +14,7 @@ export default function FinalCta() {
           src={finalCta.image}
           alt="Mist rolling over a volcano ridge at golden hour"
           loading="lazy"
+          decoding="async"
           className="h-[120%] w-full object-cover"
         />
       </motion.div>
