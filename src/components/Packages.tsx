@@ -1,3 +1,5 @@
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'motion/react'
 import { ArrowUpRight } from 'lucide-react'
 import { brand, packages, thumb } from '../data/site'
 import Reveal from './Reveal'
@@ -5,8 +7,16 @@ import Reveal from './Reveal'
 const featured = packages.featured
 
 export default function Packages() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  })
+  // gentle scroll parallax on the card imagery — same motion language as Moments
+  const y = useTransform(scrollYProgress, [0, 1], [36, -36])
+
   return (
-    <section id="tours" className="relative py-24 md:py-36">
+    <section id="tours" ref={sectionRef} className="relative pb-24 pt-16 md:pb-36 md:pt-20">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="mb-14 max-w-3xl md:mb-20">
           <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-ember">
@@ -27,13 +37,15 @@ export default function Packages() {
               href={`mailto:${brand.email}?subject=${encodeURIComponent(featured.name)}`}
               className="group relative block h-full min-h-[30rem] overflow-hidden rounded-[1.75rem] transition-transform duration-500 ease-out hover:-translate-y-2 xl:min-h-[42rem]"
             >
-              <img
-                src={thumb(featured.image, 1280)}
-                alt={featured.name}
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
-              />
+              <motion.div style={{ y }} className="absolute inset-0">
+                <img
+                  src={thumb(featured.image, 1280)}
+                  alt={featured.name}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-[115%] w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+                />
+              </motion.div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
               <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
                 <div className="mb-5 flex flex-wrap items-center gap-3">
@@ -83,13 +95,15 @@ export default function Packages() {
                 href="#plan"
                 className="group relative block h-full min-h-[24rem] overflow-hidden rounded-[1.75rem] transition-transform duration-500 ease-out hover:-translate-y-2"
               >
-                <img
-                  src={thumb(p.image, 960)}
-                  alt={p.name}
-                  loading="lazy"
-                  decoding="async"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
-                />
+                <motion.div style={{ y }} className="absolute inset-0">
+                  <img
+                    src={thumb(p.image, 960)}
+                    alt={p.name}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-[115%] w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+                  />
+                </motion.div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
                 <div className="absolute inset-0 flex flex-col justify-end p-7">
                   <span className="mb-4 w-fit rounded-full glass px-3.5 py-1.5 text-xs font-medium text-mist">

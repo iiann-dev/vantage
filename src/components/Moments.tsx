@@ -53,7 +53,7 @@ export default function Moments() {
   }
 
   return (
-    <section id="moments" ref={sectionRef} className="relative py-24 md:py-36">
+    <section id="moments" ref={sectionRef} className="relative pb-16 pt-24 md:pb-20 md:pt-36">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12 flex flex-wrap items-end justify-between gap-8 md:mb-16">
           <Reveal className="max-w-2xl">
