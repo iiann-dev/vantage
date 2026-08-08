@@ -57,7 +57,6 @@ export const tours = [
     sub: 'Private sunrise safaris through the caldera of Mount Bromo. The dawn you will measure every other dawn against.',
     image:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Mount_Bromo_at_sunrise%2C_showing_its_volcanoes_and_Mount_Semeru_%28background%29.jpg/1920px-Mount_Bromo_at_sunrise%2C_showing_its_volcanoes_and_Mount_Semeru_%28background%29.jpg',
-      thumb: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Mount_Bromo_at_sunrise%2C_showing_its_volcanoes_and_Mount_Semeru_%28background%29.jpg/320px-Mount_Bromo_at_sunrise%2C_showing_its_volcanoes_and_Mount_Semeru_%28background%29.jpg',
   },
   {
     id: 'ijen',
@@ -68,7 +67,6 @@ export const tours = [
     sub: 'A night hike to the most surreal fire on Earth: liquid sulfur glowing at the crater floor of Kawah Ijen.',
     image:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Blue_fire_of_Ijen%2C_Kawah_Ijen%2C_Java%2C_Indonesia%2C_20220821_0432_9580.jpg/1920px-Blue_fire_of_Ijen%2C_Kawah_Ijen%2C_Java%2C_Indonesia%2C_20220821_0432_9580.jpg',
-      thumb: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Blue_fire_of_Ijen%2C_Kawah_Ijen%2C_Java%2C_Indonesia%2C_20220821_0432_9580.jpg/320px-Blue_fire_of_Ijen%2C_Kawah_Ijen%2C_Java%2C_Indonesia%2C_20220821_0432_9580.jpg',
   },
   {
     id: 'tumpak',
@@ -79,7 +77,6 @@ export const tours = [
     sub: 'A curtain of water a kilometer wide, canyon trails, and volcanic hot springs to end the day.',
     image:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Air_Terjun_Tumpak_Sewu.jpg/1920px-Air_Terjun_Tumpak_Sewu.jpg',
-      thumb: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Air_Terjun_Tumpak_Sewu.jpg/320px-Air_Terjun_Tumpak_Sewu.jpg',
   },
 ]
 
@@ -94,37 +91,37 @@ export const moments = {
       title: 'The caldera at first light',
       caption: 'Mount Bromo & Semeru, 5:42 am',
       image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Gunung_Bromo_sunrise_-_Indonesia.jpg/960px-Gunung_Bromo_sunrise_-_Indonesia.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Gunung_Bromo_sunrise_-_Indonesia.jpg/1920px-Gunung_Bromo_sunrise_-_Indonesia.jpg',
     },
     {
       title: 'Blue fire, Kawah Ijen',
       caption: 'Electric sulfur at 2,400 meters',
       image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/The_blue_fire_of_Kawah_Ijen_2.jpg/960px-The_blue_fire_of_Kawah_Ijen_2.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/The_blue_fire_of_Kawah_Ijen_2.jpg/1920px-The_blue_fire_of_Kawah_Ijen_2.jpg',
     },
     {
       title: 'Sulfur fields at dawn',
       caption: 'The miners of Ijen, 3:10 am',
       image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Kawah-Ijen_Indonesia_Ijen-Sulfur-Miner-01.jpg/960px-Kawah-Ijen_Indonesia_Ijen-Sulfur-Miner-01.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Kawah-Ijen_Indonesia_Ijen-Sulfur-Miner-01.jpg/1920px-Kawah-Ijen_Indonesia_Ijen-Sulfur-Miner-01.jpg',
     },
     {
       title: 'Inside the crater',
       caption: 'The acid lake of Kawah Ijen',
       image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Interior_of_Kawah_Ijen_volcano_crater%2C_20220821_0547_9699.jpg/960px-Interior_of_Kawah_Ijen_volcano_crater%2C_20220821_0547_9699.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Interior_of_Kawah_Ijen_volcano_crater%2C_20220821_0547_9699.jpg/1920px-Interior_of_Kawah_Ijen_volcano_crater%2C_20220821_0547_9699.jpg',
     },
     {
       title: 'Thousand Falls',
       caption: 'Tumpak Sewu, Lumajang',
       image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Tumpak_sewu_waterfall.jpg/960px-Tumpak_sewu_waterfall.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Tumpak_sewu_waterfall.jpg/1920px-Tumpak_sewu_waterfall.jpg',
     },
     {
       title: 'Batok in the morning glow',
       caption: 'Viewed from the Bromo rim',
       image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Batok%2C_view_from_Bromo_volcano%2C_Java%2C_Indonesia%2C_20220820_0539_9409.jpg/960px-Batok%2C_view_from_Bromo_volcano%2C_Java%2C_Indonesia%2C_20220820_0539_9409.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Batok%2C_view_from_Bromo_volcano%2C_Java%2C_Indonesia%2C_20220820_0539_9409.jpg/1920px-Batok%2C_view_from_Bromo_volcano%2C_Java%2C_Indonesia%2C_20220820_0539_9409.jpg',
     },
   ],
 }
@@ -144,7 +141,7 @@ export const packages = {
     badge: 'Most loved',
     cta: 'Reserve this arc',
     image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Gunung_Bromo_sunrise_-_Indonesia.jpg/960px-Gunung_Bromo_sunrise_-_Indonesia.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Gunung_Bromo_sunrise_-_Indonesia.jpg/1920px-Gunung_Bromo_sunrise_-_Indonesia.jpg',
     includes: ['All permits & park fees', 'Local guide + driver', 'Homestay & boutique stays', 'Jeep safaris & transfers'],
   },
   items: [
@@ -156,7 +153,7 @@ export const packages = {
       price: 'from $420',
       cta: 'Reserve',
       image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Mount_Bromo_Sunrise_Right.jpg/960px-Mount_Bromo_Sunrise_Right.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Mount_Bromo_Sunrise_Right.jpg/1920px-Mount_Bromo_Sunrise_Right.jpg',
     },
     {
       id: 'ijen-pkg',
@@ -166,7 +163,7 @@ export const packages = {
       price: 'from $380',
       cta: 'Reserve',
       image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Blue_fire_of_Ijen%2C_Kawah_Ijen%2C_Java%2C_Indonesia%2C_20220821_0432_9580.jpg/960px-Blue_fire_of_Ijen%2C_Kawah_Ijen%2C_Java%2C_Indonesia%2C_20220821_0432_9580.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Blue_fire_of_Ijen%2C_Kawah_Ijen%2C_Java%2C_Indonesia%2C_20220821_0432_9580.jpg/1920px-Blue_fire_of_Ijen%2C_Kawah_Ijen%2C_Java%2C_Indonesia%2C_20220821_0432_9580.jpg',
     },
     {
       id: 'tumpak-pkg',
@@ -176,7 +173,7 @@ export const packages = {
       price: 'from $160',
       cta: 'Reserve',
       image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Air_Terjun_Tumpak_Sewu.jpg/960px-Air_Terjun_Tumpak_Sewu.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Air_Terjun_Tumpak_Sewu.jpg/1920px-Air_Terjun_Tumpak_Sewu.jpg',
     },
   ],
 }
@@ -235,7 +232,7 @@ export const howItWorks = {
   label: 'How it works',
   title: 'From the first message to the rim of a volcano.',
   image:
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Mount_Bromo_Sunrise_Right.jpg/960px-Mount_Bromo_Sunrise_Right.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Mount_Bromo_Sunrise_Right.jpg/1920px-Mount_Bromo_Sunrise_Right.jpg',
   imageCaption: 'The Sea of Sand, Bromo, crossed before dawn',
   steps: [
     {

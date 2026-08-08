@@ -31,7 +31,6 @@ export default function Packages() {
                 src={featured.image}
                 alt={featured.name}
                 loading="lazy"
-                decoding="async"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
@@ -87,7 +86,6 @@ export default function Packages() {
                   src={p.image}
                   alt={p.name}
                   loading="lazy"
-                  decoding="async"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />

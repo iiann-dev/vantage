@@ -8,9 +8,6 @@ const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 export default function Hero() {
   const [active, setActive] = useState(0)
   const [paused, setPaused] = useState(false)
-  // Only the active slide requests its image eagerly; the others prefetch
-  // shortly after first paint so the first load stays light.
-  const [preloaded, setPreloaded] = useState<boolean[]>([true, false, false])
   const { scrollY } = useScroll()
   const proofY = useTransform(scrollY, [0, 700], [0, 60])
   const fade = useTransform(scrollY, [0, 520], [1, 0])
@@ -21,14 +18,6 @@ export default function Hero() {
     const t = setInterval(() => setActive((i) => (i + 1) % tours.length), 9000)
     return () => clearInterval(t)
   }, [paused])
-
-  // Ensure the active slide is always preloaded, then fetch the rest after
-  // first paint so they are ready before the auto-advance kicks in.
-  useEffect(() => {
-    setPreloaded((p) => p.map((v, i) => v || i === active))
-    const t = window.setTimeout(() => setPreloaded([true, true, true]), 1800)
-    return () => window.clearTimeout(t)
-  }, [active])
 
   const tour = tours[active]
 
@@ -47,9 +36,8 @@ export default function Hero() {
           aria-hidden={i !== active}
         >
           <img
-            src={preloaded[i] ? t.image : undefined}
+            src={t.image}
             alt={t.name}
-            decoding="async"
             className="kenburns h-full w-full object-cover"
             fetchPriority={i === 0 ? 'high' : 'auto'}
           />
@@ -187,7 +175,7 @@ export default function Hero() {
                   i === active ? 'ring-2 ring-ember/80' : 'ring-1 ring-white/15'
                 }`}
               >
-                <img src={t.thumb} alt="" loading="lazy" decoding="async" className="size-full object-cover" />
+                <img src={t.image} alt="" loading="lazy" className="size-full object-cover" />
               </span>
               <span className="min-w-0">
                 <span className="block truncate text-sm font-semibold text-mist">{t.name}</span>
@@ -213,7 +201,7 @@ export default function Hero() {
               }`}
             >
               <span className="relative block h-28 w-full overflow-hidden rounded-xl">
-                <img src={t.thumb} alt={t.name} loading="lazy" decoding="async" className="size-full w-full object-cover" />
+                <img src={t.image} alt={t.name} loading="lazy" className="size-full w-full object-cover" />
               </span>
               <span className="mt-3 block text-sm font-semibold text-mist">{t.name}</span>
               <span className="mt-0.5 block text-xs text-mist-dim">{t.desc}</span>

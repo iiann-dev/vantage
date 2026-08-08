@@ -22,7 +22,6 @@ function Parallax({
         src={item.image}
         alt={item.title}
         loading="lazy"
-        decoding="async"
         className="h-full w-full scale-[1.12] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.18]"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
