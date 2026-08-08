@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces Variable", "Fraunces", Georgia, serif;
+  --font-sans: "Manrope Variable", "Manrope", system-ui, sans-serif;
+
+  --color-ink: #0c0a07;
+  --color-ink-2: #14100b;
+  --color-panel: #1a1410;
+  --color-mist: #f4ede2;
+  --color-mist-dim: #b7ac9c;
+  --color-ember: #e8914e;
+  --color-ember-deep: #c96e2f;
+
+  --radius-card: 1.5rem;
+  --radius-pill: 999px;
+
+  --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-mist);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- Lenis smooth scroll ---- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+::selection {
+  background: var(--color-ember);
+  color: var(--color-ink);
+}
+
+/* ---- horizontal galleries ---- */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ---- glass surfaces ---- */
+.glass {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.glass-strong {
+  background: rgba(12, 10, 7, 0.55);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ---- floating testimonial drift ---- */
+@keyframes floaty {
+  from {
+    transform: translateY(-6px);
+  }
+  to {
+    transform: translateY(6px);
+  }
+}
+.floaty {
+  animation: floaty 7s ease-in-out infinite alternate;
+}
+.floaty-slow {
+  animation: floaty 9.5s ease-in-out infinite alternate;
+}
+@media (prefers-reduced-motion: reduce) {
+  .floaty,
+  .floaty-slow {
+    animation: none;
+  }
+}
+
+/* ---- hero ken burns ---- */
+@keyframes kenburns {
+  from {
+    transform: scale(1.08) translateY(-1%);
+  }
+  to {
+    transform: scale(1.16) translateY(1%);
+  }
+}
+.kenburns {
+  animation: kenburns 18s ease-in-out infinite alternate;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kenburns {
+    animation: none;
+  }
+}
+
+/* ---- headline re-key entrance (pure CSS, cannot stall) ---- */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise-in {
+  animation: rise-in 0.7s var(--ease-soft) both;
+}
+.rise-in-late {
+  animation: rise-in 0.9s var(--ease-soft) both;
+  animation-delay: 0.12s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rise-in,
+  .rise-in-late {
+    animation: none;
+  }
+}
