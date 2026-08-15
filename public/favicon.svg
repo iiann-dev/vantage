@@ -1,29 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <defs>
-    <linearGradient id="emberGrad" x1="0%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%" stop-color="#E8914E"/>
-      <stop offset="100%" stop-color="#C96E2F"/>
-    </linearGradient>
-    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#FFD4A3" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#E8914E" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <!-- Rounded background -->
-  <rect x="1" y="1" width="30" height="30" rx="7" fill="#0C0A07"/>
-  <!-- Volcano peak forming V -->
-  <g transform="translate(6, 20)">
-    <!-- Left slope -->
-    <path d="M0 0 L10 20" stroke="url(#emberGrad)" stroke-width="3" stroke-linecap="round" fill="none"/>
-    <!-- Right slope -->
-    <path d="M10 0 L0 20" stroke="url(#emberGrad)" stroke-width="3" stroke-linecap="round" fill="none"/>
-    <!-- Crater glow -->
-    <ellipse cx="5" cy="2" rx="4" ry="3" fill="url(#glowGrad)"/>
-    <!-- Crater rim -->
-    <ellipse cx="5" cy="2" rx="3.5" ry="2.5" fill="none" stroke="#0C0A07" stroke-width="1.5"/>
-    <!-- Lava dot at peak -->
-    <circle cx="5" cy="1" r="1.5" fill="#FF6B1A"/>
-    <!-- Ash plume hint -->
-    <path d="M5 2 Q3 -2 5 -4 Q7 -2 5 2" stroke="#E8914E" stroke-width="1" fill="none" opacity="0.4"/>
-  </g>
+<svg>
+  <rect width="32" height="32" fill="#0C0A07"/> xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <path d="M3 16.5 8.6 5.5l3.9 11L16.6 8l4.4 8.5" stroke="#0C0A07" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="17.6" cy="5.4" r="2.1" fill="#0C0A07"/>
 </svg>
