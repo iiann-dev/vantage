@@ -4,22 +4,32 @@ import Hero from './components/Hero'
 import Moments from './components/Moments'
 import Packages from './components/Packages'
 import Testimonials from './components/Testimonials'
+import ExpeditionGuide from './components/ExpeditionGuide'
 import HowItWorks from './components/HowItWorks'
 import FinalCta from './components/FinalCta'
+import FaqSection from './components/FaqSection'
 import Footer from './components/Footer'
+import Atmosphere from './components/Atmosphere'
+import ScrollProgress from './components/ScrollProgress'
 
 export default function App() {
   useLenis()
   return (
-    <main className="min-h-screen bg-ink text-mist">
+    <main className="relative min-h-screen bg-ink text-mist">
+      <Atmosphere />
+      <ScrollProgress />
       <Navbar />
-      <Hero />
-      <Moments />
-      <Packages />
-      <Testimonials />
-      <HowItWorks />
-      <FinalCta />
-      <Footer />
+      <div className="relative z-10">
+        <Hero />
+        <Moments />
+        <Packages />
+        <Testimonials />
+        <ExpeditionGuide />
+        <HowItWorks />
+        <FaqSection />
+        <FinalCta />
+        <Footer />
+      </div>
     </main>
   )
 }

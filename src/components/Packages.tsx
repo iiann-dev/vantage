@@ -1,8 +1,9 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'motion/react'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Mountain, Clock, Users, BookOpen } from 'lucide-react'
 import { brand, packages, thumb } from '../data/site'
 import Reveal from './Reveal'
+import ItineraryModal from './ItineraryModal'
 
 const featured = packages.featured
 
@@ -12,8 +13,8 @@ export default function Packages() {
     target: sectionRef,
     offset: ['start end', 'end start'],
   })
-  // gentle scroll parallax on the card imagery — same motion language as Moments
   const y = useTransform(scrollYProgress, [0, 1], [36, -36])
+  const [open, setOpen] = useState<(typeof packages)['items'][number] | typeof featured | null>(null)
 
   return (
     <section id="tours" ref={sectionRef} className="relative pb-24 pt-16 md:pb-36 md:pt-20">
@@ -33,10 +34,7 @@ export default function Packages() {
         <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
           {/* -------- featured card -------- */}
           <Reveal className="lg:col-span-1 xl:col-span-2 xl:row-span-2">
-            <a
-              href={`mailto:${brand.email}?subject=${encodeURIComponent(featured.name)}`}
-              className="group relative block h-full min-h-[30rem] overflow-hidden rounded-[1.75rem] transition-transform duration-500 ease-out hover:-translate-y-2 xl:min-h-[42rem]"
-            >
+            <div className="group relative block h-full min-h-[30rem] overflow-hidden rounded-[1.75rem] transition-transform duration-500 ease-out hover:-translate-y-2 xl:min-h-[42rem]">
               <motion.div style={{ y }} className="absolute inset-0">
                 <img
                   src={thumb(featured.image, 1280)}
@@ -63,7 +61,7 @@ export default function Packages() {
                   {featured.desc}
                 </p>
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {featured.includes.map((inc) => (
+                  {featured.includes.slice(0, 4).map((inc) => (
                     <span
                       key={inc}
                       className="rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-mist/85 backdrop-blur-md"
@@ -72,29 +70,38 @@ export default function Packages() {
                     </span>
                   ))}
                 </div>
-                <div className="mt-8 flex items-end justify-between gap-4">
+                <div className="mt-8 flex flex-wrap items-end justify-between gap-4">
                   <p className="text-sm text-mist-dim">
                     <span className="font-display text-3xl text-mist md:text-4xl">
                       {featured.price.split('from')[1].trim()}
                     </span>
                     <span className="text-mist-dim"> {featured.price.split('from')[0]}per traveler</span>
                   </p>
-                  <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-ember to-ember-deep px-6 py-3.5 text-sm font-semibold text-ink transition-transform duration-200 hover:scale-[1.05] active:scale-[0.96]">
-                    {featured.cta}
-                    <ArrowUpRight className="size-4" />
-                  </span>
+                  <div className="flex gap-3">
+                    <button
+                      onClick={() => setOpen(featured)}
+                      className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium text-mist transition-all hover:bg-white/15 active:scale-95"
+                    >
+                      <BookOpen className="size-4" />
+                      Itinerary
+                    </button>
+                    <a
+                      href={`mailto:${brand.email}?subject=${encodeURIComponent(featured.name)}`}
+                      className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-ember to-ember-deep px-6 py-3.5 text-sm font-semibold text-ink transition-transform duration-200 hover:scale-[1.05] active:scale-[0.96]"
+                    >
+                      {featured.cta}
+                      <ArrowUpRight className="size-4" />
+                    </a>
+                  </div>
                 </div>
               </div>
-            </a>
+            </div>
           </Reveal>
 
           {/* -------- small cards -------- */}
           {packages.items.map((p, i) => (
             <Reveal key={p.id} delay={0.12 + i * 0.08}>
-              <a
-                href="#plan"
-                className="group relative block h-full min-h-[24rem] overflow-hidden rounded-[1.75rem] transition-transform duration-500 ease-out hover:-translate-y-2"
-              >
+              <div className="group relative block h-full min-h-[24rem] overflow-hidden rounded-[1.75rem] transition-transform duration-500 ease-out hover:-translate-y-2">
                 <motion.div style={{ y }} className="absolute inset-0">
                   <img
                     src={thumb(p.image, 960)}
@@ -113,7 +120,24 @@ export default function Packages() {
                     {p.name}
                   </h3>
                   <p className="mt-2.5 text-sm leading-relaxed text-mist/75">{p.desc}</p>
-                  <div className="mt-6 flex items-center justify-between">
+
+                  {/* Mini metadata strip */}
+                  <div className="mt-5 flex flex-wrap gap-2.5">
+                    <span className="flex items-center gap-1.5 text-[11px] text-mist/70">
+                      <Mountain className="size-3" />
+                      {p.elevation}
+                    </span>
+                    <span className="flex items-center gap-1.5 text-[11px] text-mist/70">
+                      <Clock className="size-3" />
+                      {p.duration}
+                    </span>
+                    <span className="flex items-center gap-1.5 text-[11px] text-mist/70">
+                      <Users className="size-3" />
+                      {p.groupSize}
+                    </span>
+                  </div>
+
+                  <div className="mt-6 flex items-center justify-between gap-3">
                     <p className="text-sm text-mist-dim">
                       {p.price.split('from')[0]}
                       <span className="font-display text-2xl text-mist">
@@ -121,22 +145,29 @@ export default function Packages() {
                         {p.price.split('from')[1].trim()}
                       </span>
                     </p>
-                    <span className="inline-flex items-center gap-1.5 rounded-full glass px-5 py-2.5 text-sm font-semibold text-mist transition-all duration-200 group-hover:bg-ember group-hover:text-ink active:scale-[0.96]">
-                      {p.cta}
-                      <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </span>
+                    <button
+                      onClick={() => setOpen(p)}
+                      className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-4 py-2.5 text-xs font-semibold text-mist backdrop-blur-md transition-all hover:bg-white/20 active:scale-95"
+                    >
+                      <BookOpen className="size-3.5" />
+                      Itinerary
+                    </button>
                   </div>
                 </div>
-              </a>
+              </div>
             </Reveal>
           ))}
         </div>
 
-        <p className="mt-10 text-center text-sm text-mist-dim">
-          Every journey is private or small-group (max 12). Custom arcs from{' '}
-          <span className="font-semibold text-mist">{brand.priceRange}</span>, no obligation.
-        </p>
+        {/* Bottom note */}
+        <Reveal delay={0.5}>
+          <p className="mt-12 text-center text-sm text-mist-dim">
+            Every tour is private · runs from 2 travelers · custom dates available year-round
+          </p>
+        </Reveal>
       </div>
+
+      <ItineraryModal pkg={open} onClose={() => setOpen(null)} />
     </section>
   )
 }

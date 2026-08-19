@@ -12,6 +12,8 @@ export const brand = {
   location: 'East Java, Indonesia',
   priceRange: '$160 to $1,480',
   email: 'hello@vantage.travel',
+  phone: '+62 812 3456 7890',
+  base: 'Surabaya · Malang · Banyuwangi',
   socials: [
     { label: 'Instagram', href: 'https://instagram.com' },
     { label: 'YouTube', href: 'https://youtube.com' },
@@ -23,7 +25,9 @@ export const navLinks = [
   { label: 'Moments', href: '#moments' },
   { label: 'Tours', href: '#tours' },
   { label: 'Stories', href: '#stories' },
+  { label: 'Expedition', href: '#expedition' },
   { label: 'Plan', href: '#plan' },
+  { label: 'FAQ', href: '#faq' },
 ]
 
 // ---------- HERO ----------
@@ -127,6 +131,8 @@ export const moments = {
 }
 
 // ---------- TOUR PACKAGES ----------
+// Each package now carries full day-by-day metadata, difficulty, elevation,
+// and a "highlights" array — used by the ItineraryModal.
 export const packages = {
   label: 'The journeys',
   title: 'Choose your arc across the mountains.',
@@ -142,7 +148,69 @@ export const packages = {
     cta: 'Reserve this arc',
     image:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Gunung_Bromo_sunrise_-_Indonesia.jpg/1920px-Gunung_Bromo_sunrise_-_Indonesia.jpg',
-    includes: ['All permits & park fees', 'Local guide + driver', 'Homestay & boutique stays', 'Jeep safaris & transfers'],
+    difficulty: 'Moderate',
+    duration: '7 days · 6 nights',
+    groupSize: 'Max 12 travelers',
+    elevation: '2,400 – 3,676 m',
+    startCity: 'Surabaya',
+    endCity: 'Banyuwangi',
+    rating: '4.97 / 5',
+    reviews: '1,240 reviews',
+    bestSeason: 'May – September',
+    includes: [
+      'All permits & park fees',
+      'Local guide + driver',
+      'Homestay & boutique stays',
+      'Jeep safaris & transfers',
+      'Gas mask & head torch at Ijen',
+      'Daily breakfast & 4 dinners',
+      'Carbon-offset transport',
+    ],
+    highlights: [
+      'Sunrise at King Kong Hill, Bromo',
+      'Crater rim walk, Mt Bromo (2,329 m)',
+      'Blue fire descent, Kawah Ijen',
+      'Midnight stargazing at Cemoro Lawang',
+      'Tumpak Sewu thousand falls',
+      'Village homestay above the clouds',
+    ],
+    itinerary: [
+      {
+        day: 'Day 1',
+        title: 'Arrival in Surabaya',
+        detail: 'Airport pickup at Juanda, transfer to a boutique hotel in the old town. Welcome dinner with the guides and a soft briefing on the week ahead.',
+      },
+      {
+        day: 'Day 2',
+        title: 'Drive to Bromo · Cemoro Lawang',
+        detail: 'A scenic 4-hour drive into the Tengger massif. Acclimatize at a village homestay at 2,200 m. Optional sunset walk to the rim viewpoint.',
+      },
+      {
+        day: 'Day 3',
+        title: 'Bromo sunrise · Sea of Sand',
+        detail: '3:30 am departure in 4x4 jeeps across the Sea of Sand. Sunrise at King Kong Hill, then a climb to the crater rim of Mt Bromo itself.',
+      },
+      {
+        day: 'Day 4',
+        title: 'Tumpak Sewu Canyon',
+        detail: 'Drive west to Lumajang. Descend into the amphitheater of a thousand falls, a 1 km curtain of water. Optional cliff-side trek and a volcanic hot spring soak.',
+      },
+      {
+        day: 'Day 5',
+        title: 'Transfer to Ijen · Bondowoso',
+        detail: 'A slow morning then a 5-hour drive east through clove and coffee country to a highland lodge near the Ijen plateau.',
+      },
+      {
+        day: 'Day 6',
+        title: 'Kawah Ijen blue fire',
+        detail: 'Midnight departure. 2-hour ascent to the crater rim. Descend (with gas masks) to the blue fire, then climb back up for the turquoise acid lake at dawn.',
+      },
+      {
+        day: 'Day 7',
+        title: 'Banyuwangi · departure',
+        detail: 'Sleep in. Brunch at the lodge. Transfer to Banyuwangi station or airport for your onward journey. Farewells.',
+      },
+    ],
   },
   items: [
     {
@@ -154,6 +222,45 @@ export const packages = {
       cta: 'Reserve',
       image:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Mount_Bromo_Sunrise_Right.jpg/1920px-Mount_Bromo_Sunrise_Right.jpg',
+      difficulty: 'Easy',
+      duration: '3 days · 2 nights',
+      groupSize: 'Max 12 travelers',
+      elevation: '2,200 – 2,329 m',
+      startCity: 'Surabaya / Malang',
+      endCity: 'Surabaya / Malang',
+      rating: '4.96 / 5',
+      reviews: '980 reviews',
+      bestSeason: 'May – September',
+      includes: [
+        'All permits & park fees',
+        'Local guide + driver',
+        '2 nights boutique stay',
+        'Jeep safari & crater climb',
+        'Daily breakfast',
+      ],
+      highlights: [
+        'Sunrise at King Kong Hill',
+        'Sea of Sand jeep crossing',
+        'Crater rim of Mt Bromo',
+        'Optional Whispering Sands walk',
+      ],
+      itinerary: [
+        {
+          day: 'Day 1',
+          title: 'Surabaya → Cemoro Lawang',
+          detail: 'Pickup at 11am. Drive 4 hours into the Tengger massif. Arrive at the village homestay for sunset tea and briefing.',
+        },
+        {
+          day: 'Day 2',
+          title: 'Sunrise jeep safari',
+          detail: '3:30 am departure in 4x4 jeeps. Sunrise at King Kong Hill, walk to the crater rim of Mt Bromo, descend to the Sea of Sand. Return for a long breakfast. Optional afternoon hike to Batok peak.',
+        },
+        {
+          day: 'Day 3',
+          title: 'Reverse sunrise · return',
+          detail: 'A lazy dawn on the village terrace. Brunch at the homestay. Drive back to Surabaya or Malang, arriving mid-afternoon.',
+        },
+      ],
     },
     {
       id: 'ijen-pkg',
@@ -164,6 +271,40 @@ export const packages = {
       cta: 'Reserve',
       image:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Blue_fire_of_Ijen%2C_Kawah_Ijen%2C_Java%2C_Indonesia%2C_20220821_0432_9580.jpg/1920px-Blue_fire_of_Ijen%2C_Kawah_Ijen%2C_Java%2C_Indonesia%2C_20220821_0432_9580.jpg',
+      difficulty: 'Moderate',
+      duration: '2 days · 1 night',
+      groupSize: 'Max 8 travelers',
+      elevation: '2,400 – 2,799 m',
+      startCity: 'Banyuwangi / Bondowoso',
+      endCity: 'Banyuwangi',
+      rating: '4.95 / 5',
+      reviews: '620 reviews',
+      bestSeason: 'May – October',
+      includes: [
+        'All permits & park fees',
+        'Local guide + driver',
+        '1 night highland lodge',
+        'Gas mask & head torch',
+        'Dinner & breakfast',
+      ],
+      highlights: [
+        'Blue flame descent at 2 am',
+        'Turquoise acid lake at sunrise',
+        'Sulfur miner porters in action',
+        'Coffee plantation breakfast',
+      ],
+      itinerary: [
+        {
+          day: 'Day 1',
+          title: 'Banyuwangi → Bondowoso',
+          detail: 'Pickup at 1pm. Drive 3 hours up into the highlands. Coffee plantation walk. Early dinner by 7pm.',
+        },
+        {
+          day: 'Day 2',
+          title: 'Blue fire ascent',
+          detail: 'Midnight departure. 2-hour ascent to the crater rim. Gear up with a gas mask and descend to the blue flame. Climb back up for the turquoise acid lake at sunrise. Transfer back to Banyuwangi by 11am.',
+        },
+      ],
     },
     {
       id: 'tumpak-pkg',
@@ -174,6 +315,34 @@ export const packages = {
       cta: 'Reserve',
       image:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Air_Terjun_Tumpak_Sewu.jpg/1920px-Air_Terjun_Tumpak_Sewu.jpg',
+      difficulty: 'Easy – Moderate',
+      duration: '1 day',
+      groupSize: 'Max 10 travelers',
+      elevation: '500 – 900 m',
+      startCity: 'Surabaya / Malang',
+      endCity: 'Surabaya / Malang',
+      rating: '4.92 / 5',
+      reviews: '410 reviews',
+      bestSeason: 'April – November',
+      includes: [
+        'All permits & park fees',
+        'Local guide',
+        'Lunch in the canyon',
+        'Air-conditioned transport',
+      ],
+      highlights: [
+        '1 km curtain of water',
+        'Canyon-floor trail',
+        'Volcanic hot spring soak',
+        'Drone-friendly viewpoints',
+      ],
+      itinerary: [
+        {
+          day: 'Day 1',
+          title: 'Tumpak Sewu day trip',
+          detail: 'Pickup at 2am (yes, really) for the sunrise viewpoint. Descend through bamboo ladders to the canyon floor. Walk along the river. Lunch by the falls. Optional hot spring soak. Return by 8pm.',
+        },
+      ],
     },
   ],
 }
@@ -227,6 +396,60 @@ export const testimonials = {
   ],
 }
 
+// ---------- EXPEDITION GUIDE (gear, altitude, seasons) ----------
+export const expedition = {
+  label: 'Expedition guide',
+  title: 'Know the mountain before you meet it.',
+  intro:
+    'Three small things decide whether a volcano trip becomes a story you retell — or a story you survive. Here is exactly what we prepare, and what we provide.',
+  altitude: {
+    title: 'Altitude & temperature',
+    intro:
+      'Bromo and Ijen sit higher than most travelers expect. Temperatures swing 20°C between coast and rim. We plan every departure around the morning low.',
+    stats: [
+      { label: 'Sunrise at Bromo', value: '2 – 7 °C', note: 'June – September' },
+      { label: 'Trailhead (Bromo)', value: '2,200 m', note: 'Acclimatized first night' },
+      { label: 'Crater rim', value: '2,329 m', note: 'Moderate 30 min climb' },
+      { label: 'Ijen summit', value: '2,799 m', note: '2 hours from the gate' },
+    ],
+  },
+  gear: {
+    title: 'What we provide · what you bring',
+    intro:
+      'Every traveler is kitted with field-grade equipment on the mountain. Pack light for the rest; we handle the rest.',
+    provided: [
+      { name: 'Gas mask & filter', detail: '3M-compatible respirator for the Ijen crater floor.' },
+      { name: 'Head torch', detail: 'Petzl-grade LED, 200+ lumens, fresh batteries nightly.' },
+      { name: 'Thermal blanket', detail: 'Emergency bivvy, hand-warmer pack at the rim.' },
+      { name: '4x4 jeep & driver', detail: 'Sea of Sand crossings, all fuel and permits included.' },
+      { name: 'Mountain guide', detail: 'Local, English-speaking, first-aid certified.' },
+      { name: 'Pre-trip briefing', detail: 'WhatsApp group with weather, gear, and photos from your guide.' },
+    ],
+    bring: [
+      { name: 'Layered clothing', detail: 'Thermal base, fleece mid, windproof shell. Temperatures vary 20°C in a day.' },
+      { name: 'Sturdy hiking boots', detail: 'Ankle support, broken in. Trail grip matters more than looks.' },
+      { name: 'Gloves & beanie', detail: 'Pre-dawn at 2,300 m is genuinely cold, even in the dry season.' },
+      { name: 'Sun protection', detail: 'SPF 50, UV sunglasses, lip balm. UV at altitude is 30%+ stronger.' },
+      { name: 'Reusable water bottle', detail: 'We refill with boiled mountain water at every stop.' },
+      { name: 'Camera', detail: 'Wide-angle for calderas, fast lens for blue fire. Spare batteries — cold drains them.' },
+    ],
+  },
+  seasons: [
+    { month: 'Jan', temp: '24° / 14°', rain: 'High', rating: 3, note: 'Wet, but waterfalls are at peak flow.' },
+    { month: 'Feb', temp: '24° / 14°', rain: 'High', rating: 3, note: 'Lush green, occasional cloud at summit.' },
+    { month: 'Mar', temp: '25° / 14°', rain: 'Medium', rating: 4, note: 'Transitional, fewer crowds.' },
+    { month: 'Apr', temp: '25° / 13°', rain: 'Medium', rating: 4, note: 'Light crowds, occasional rain.' },
+    { month: 'May', temp: '25° / 12°', rain: 'Low', rating: 5, note: 'First clear window begins.' },
+    { month: 'Jun', temp: '25° / 10°', rain: 'Very low', rating: 5, note: 'Peak dry season, clearest sunrises.' },
+    { month: 'Jul', temp: '25° / 9°', rain: 'Very low', rating: 5, note: 'Coldest at sunrise, crisp skies.' },
+    { month: 'Aug', temp: '26° / 10°', rain: 'Very low', rating: 5, note: 'Reliable dry, book early.' },
+    { month: 'Sep', temp: '26° / 11°', rain: 'Low', rating: 5, note: 'Last clear window, warm.' },
+    { month: 'Oct', temp: '27° / 13°', rain: 'Medium', rating: 4, note: 'Transitional, fewer travelers.' },
+    { month: 'Nov', temp: '27° / 14°', rain: 'High', rating: 3, note: 'Wet starts, moody skies.' },
+    { month: 'Dec', temp: '26° / 14°', rain: 'High', rating: 3, note: 'Holiday crowds, misty peaks.' },
+  ],
+}
+
 // ---------- HOW IT WORKS ----------
 export const howItWorks = {
   label: 'How it works',
@@ -254,6 +477,47 @@ export const howItWorks = {
       n: '04',
       name: 'Stand where the earth breathes',
       line: 'Sunrise at the caldera, blue fire by night, with a local guide who grew up on the slope.',
+    },
+  ],
+}
+
+// ---------- FAQ ----------
+export const faq = {
+  label: 'Field letters',
+  title: 'Questions every traveler asks.',
+  intro: 'If yours is not here, message us on WhatsApp. We reply within an hour, Surabaya time.',
+  items: [
+    {
+      q: 'Where do tours start and end?',
+      a: 'Every tour begins in East Java. Most start at Juanda International Airport (Surabaya) or on request from Malang or Banyuwangi. We pick you up at the gate, with a sign, and we bring you back to a station or airport that matches your onward plans.',
+    },
+    {
+      q: 'How fit do I need to be?',
+      a: 'Bromo is easy: a short 30-minute walk on a paved path to the crater rim. Ijen is moderate: a 2-hour ascent on a well-marked trail, then a steeper descent into the crater. Tumpak Sewu is easy to moderate: bamboo ladders and a river-gorge walk. Most travelers aged 8 to 70 are comfortable on all three. Tell us about joint issues or breathing conditions and we will tune the route.',
+    },
+    {
+      q: 'Is the sulfur gas at Ijen really dangerous?',
+      a: 'The gas is unpleasant and can aggravate asthma. We provide a 3M-compatible respirator at the crater rim and again at the descent. We do not go downwind of the fumaroles, and we never linger more than 15 minutes at the blue flame. Our guide carries a gas monitor. Travelers with severe respiratory conditions should chose the Bromo or Tumpak Sewu tours instead.',
+    },
+    {
+      q: 'What is the group size?',
+      a: 'Twelve is the cap on most departures, eight on the Ijen ascent. We never combine strangers into a 30-seat bus. Smaller groups mean quieter moments at the rim, and at sunrise that is the whole point.',
+    },
+    {
+      q: 'When is the best time to go?',
+      a: 'May through September is the dry window, with the clearest sunrises and the most reliable blue fire. We still run departures in the green season (Nov – Mar) — waterfalls are heavier, crowds are lighter, and the mountains are moodier. The month-by-month rating is in the Expedition guide above.',
+    },
+    {
+      q: 'Can I customize a private departure?',
+      a: 'Yes. Every itinerary on this site can be rebuilt around your dates, group size, and pace. Tell us what you would like to add, remove, or replace, and we will send a draft arc within a day. Private departures start from 2 travelers.',
+    },
+    {
+      q: 'What is the cancellation policy?',
+      a: 'Full refund up to 30 days before departure. 50% refund up to 14 days. Inside 14 days, we offer a free date change once. If the mountain closes for safety (rare), we refund in full or move you to the next confirmed departure.',
+    },
+    {
+      q: 'Do you arrange airport transfers?',
+      a: 'Yes. Every tour includes private transfers from Juanda (Surabaya), Abdulrachman Saleh (Malang), or Blimbingsari (Banyuwangi). Vehicles are air-conditioned, drivers are licensed, and the cars are new enough to have working seatbelts in the back.',
     },
   ],
 }
