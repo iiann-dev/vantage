@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react'
-import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react'
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'motion/react'
 import { Mountain, Thermometer, Backpack, Check, Plus, Sun } from 'lucide-react'
 import { expedition, brand } from '../data/site'
 import Reveal from './Reveal'
@@ -7,13 +7,6 @@ import Reveal from './Reveal'
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 export default function ExpeditionGuide() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  })
-  const y = useTransform(scrollYProgress, [0, 1], [40, -40])
-
   const [tab, setTab] = useState<'seasons' | 'altitude' | 'gear'>('seasons')
   const [openGear, setOpenGear] = useState<string | null>(expedition.gear.provided[0].name)
 
@@ -22,22 +15,8 @@ export default function ExpeditionGuide() {
   return (
     <section
       id="expedition"
-      ref={sectionRef}
-      className="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28"
+      className="relative pt-16 pb-20 md:pt-24 md:pb-28"
     >
-      {/* Seamless background blend with smooth radial fade */}
-      <motion.div
-        style={{ y }}
-        className="pointer-events-none absolute inset-0 opacity-20"
-      >
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Blue_fire_of_Ijen%2C_Kawah_Ijen%2C_Java%2C_Indonesia%2C_20220821_0432_9580.jpg/1920px-Blue_fire_of_Ijen%2C_Kawah_Ijen%2C_Java%2C_Indonesia%2C_20220821_0432_9580.jpg"
-          alt=""
-          className="h-[120%] w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink via-transparent to-ink" />
-      </motion.div>
-
       <div className="relative mx-auto max-w-7xl px-6">
         <Reveal className="mb-12 max-w-3xl md:mb-16">
           <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-ember">
