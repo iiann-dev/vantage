@@ -4,7 +4,7 @@ import Reveal from './Reveal'
 
 export default function HowItWorks() {
   return (
-    <section id="plan" className="relative py-24 md:py-36">
+    <section id="plan" className="relative py-16 md:py-20">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:gap-20">
         {/* -------- image column -------- */}
         <Reveal className="lg:sticky lg:top-28 lg:self-start">

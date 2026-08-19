@@ -5,10 +5,10 @@ import Reveal from './Reveal'
 
 export default function FinalCta() {
   const { scrollYProgress } = useScroll()
-  const y = useTransform(scrollYProgress, [0.6, 1], [0, 140])
+  const y = useTransform(scrollYProgress, [0.6, 1], [0, 100])
 
   return (
-    <section className="relative flex min-h-[92svh] items-center justify-center overflow-hidden py-32">
+    <section className="relative flex min-h-[85svh] items-center justify-center overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32">
       <motion.div style={{ y }} className="absolute inset-0">
         <img
           src={finalCta.image}
@@ -18,7 +18,7 @@ export default function FinalCta() {
           className="h-[120%] w-full object-cover"
         />
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/45 to-ink" />
+      <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/55 to-ink" />
       <div
         className="absolute inset-0"
         style={{

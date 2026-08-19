@@ -12,7 +12,7 @@ export default function ExpeditionGuide() {
     target: sectionRef,
     offset: ['start end', 'end start'],
   })
-  const y = useTransform(scrollYProgress, [0, 1], [60, -60])
+  const y = useTransform(scrollYProgress, [0, 1], [40, -40])
 
   const [tab, setTab] = useState<'seasons' | 'altitude' | 'gear'>('seasons')
   const [openGear, setOpenGear] = useState<string | null>(expedition.gear.provided[0].name)
@@ -23,23 +23,23 @@ export default function ExpeditionGuide() {
     <section
       id="expedition"
       ref={sectionRef}
-      className="relative overflow-hidden py-24 md:py-36"
+      className="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28"
     >
-      {/* Atmospheric background image */}
+      {/* Seamless background blend with smooth radial fade */}
       <motion.div
         style={{ y }}
-        className="pointer-events-none absolute inset-0 opacity-25"
+        className="pointer-events-none absolute inset-0 opacity-20"
       >
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Blue_fire_of_Ijen%2C_Kawah_Ijen%2C_Java%2C_Indonesia%2C_20220821_0432_9580.jpg/1920px-Blue_fire_of_Ijen%2C_Kawah_Ijen%2C_Java%2C_Indonesia%2C_20220821_0432_9580.jpg"
           alt=""
           className="h-[120%] w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/70 to-ink" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink via-transparent to-ink" />
       </motion.div>
 
       <div className="relative mx-auto max-w-7xl px-6">
-        <Reveal className="mb-14 max-w-3xl">
+        <Reveal className="mb-12 max-w-3xl md:mb-16">
           <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-ember">
             {expedition.label}
           </p>
@@ -53,7 +53,7 @@ export default function ExpeditionGuide() {
 
         {/* Tabs */}
         <Reveal delay={0.1}>
-          <div className="mb-10 flex flex-wrap gap-2">
+          <div className="mb-10 flex flex-wrap gap-2.5">
             {[
               { id: 'seasons' as const, label: 'Best seasons', icon: Sun },
               { id: 'altitude' as const, label: 'Altitude & climate', icon: Mountain },
@@ -64,8 +64,8 @@ export default function ExpeditionGuide() {
                 onClick={() => setTab(t.id)}
                 className={`relative inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 ${
                   tab === t.id
-                    ? 'bg-gradient-to-br from-ember to-ember-deep text-ink shadow-lg shadow-ember/30'
-                    : 'glass text-mist-dim hover:text-mist'
+                    ? 'bg-gradient-to-br from-ember to-ember-deep text-ink shadow-lg shadow-ember/25'
+                    : 'glass text-mist-dim hover:text-mist hover:bg-white/10'
                 }`}
               >
                 <t.icon className="size-4" />
@@ -83,7 +83,7 @@ export default function ExpeditionGuide() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.5, ease: EASE }}
+              transition={{ duration: 0.45, ease: EASE }}
               className="grid gap-8 lg:grid-cols-[1.4fr_1fr]"
             >
               {/* Season matrix */}
@@ -98,7 +98,7 @@ export default function ExpeditionGuide() {
                       initial={{ opacity: 0, scale: 0.85 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.04 * i, duration: 0.4, ease: EASE }}
+                      transition={{ delay: 0.03 * i, duration: 0.4, ease: EASE }}
                       className="group relative flex flex-col items-center gap-2 rounded-2xl border border-white/5 bg-white/[0.03] p-3 transition-all hover:border-ember/40 hover:bg-white/[0.06]"
                     >
                       <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-mist-dim">
@@ -117,7 +117,7 @@ export default function ExpeditionGuide() {
                           />
                         ))}
                       </div>
-                      {s.rain}
+                      <span className="text-[10px] text-mist/60">{s.rain}</span>
                       {s.rating === 5 && (
                         <span className="absolute -top-1.5 -right-1.5 grid size-4 place-items-center rounded-full bg-ember text-[8px] font-bold text-ink breathe">
                           ★
@@ -127,7 +127,7 @@ export default function ExpeditionGuide() {
                   ))}
                 </div>
                 <p className="mt-6 text-xs text-mist-dim">
-                  Bars = travel rating (1–5).  Temperature = average for Surabaya to mountain rim.  Orange dots = peak months.
+                  Bars = travel rating (1–5). Temperature = average for Surabaya to mountain rim. Orange stars = peak months.
                 </p>
               </div>
 
@@ -163,7 +163,7 @@ export default function ExpeditionGuide() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.5, ease: EASE }}
+              transition={{ duration: 0.45, ease: EASE }}
               className="grid gap-6 md:grid-cols-2"
             >
               <div className="rounded-3xl glass p-8">
@@ -213,41 +213,31 @@ export default function ExpeditionGuide() {
                         <stop offset="100%" stopColor="#e8914e" stopOpacity="0" />
                       </linearGradient>
                     </defs>
-                    {/* axis lines */}
                     <line x1="0" y1="240" x2="340" y2="240" stroke="rgba(255,255,255,0.1)" />
                     <line x1="0" y1="180" x2="340" y2="180" stroke="rgba(255,255,255,0.05)" strokeDasharray="3 3" />
                     <line x1="0" y1="120" x2="340" y2="120" stroke="rgba(255,255,255,0.05)" strokeDasharray="3 3" />
                     <line x1="0" y1="60" x2="340" y2="60" stroke="rgba(255,255,255,0.05)" strokeDasharray="3 3" />
-                    {/* filled ridge */}
                     <path
                       d="M 0 240 Q 30 230 60 200 Q 90 175 120 165 Q 150 155 180 150 Q 220 142 250 130 Q 280 115 305 95 Q 325 75 340 50 L 340 240 Z"
                       fill="url(#ridge)"
                     />
-                    {/* ridge outline */}
                     <path
                       d="M 0 240 Q 30 230 60 200 Q 90 175 120 165 Q 150 155 180 150 Q 220 142 250 130 Q 280 115 305 95 Q 325 75 340 50"
                       stroke="#e8914e"
                       strokeWidth="2"
                       fill="none"
                     />
-                    {/* markers */}
                     <g fontFamily="var(--font-sans)" fontSize="9" fill="rgba(255,255,255,0.7)">
-                      {/* Surabaya */}
                       <circle cx="0" cy="240" r="4" fill="#f4ede2" />
                       <text x="10" y="252">Surabaya 5m</text>
-                      {/* Malang */}
                       <circle cx="60" cy="215" r="4" fill="#f4ede2" />
                       <text x="68" y="226">Malang 476m</text>
-                      {/* Cemoro */}
                       <circle cx="120" cy="165" r="4" fill="#e8914e" />
                       <text x="128" y="160">Cemoro 2,200m</text>
-                      {/* Bromo rim */}
                       <circle cx="180" cy="150" r="4" fill="#e8914e" />
                       <text x="188" y="145">Bromo 2,329m</text>
-                      {/* Bondowoso */}
                       <circle cx="250" cy="130" r="4" fill="#e8914e" />
                       <text x="258" y="125">Bondowoso 2,400m</text>
-                      {/* Ijen */}
                       <circle cx="305" cy="95" r="5" fill="#e8914e" />
                       <text x="290" y="86">Ijen 2,799m</text>
                     </g>
@@ -266,7 +256,7 @@ export default function ExpeditionGuide() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.5, ease: EASE }}
+              transition={{ duration: 0.45, ease: EASE }}
               className="grid gap-6 md:grid-cols-2"
             >
               {/* What we provide */}
@@ -345,15 +335,15 @@ export default function ExpeditionGuide() {
           )}
         </AnimatePresence>
 
-        {/* WhatsApp prompt */}
-        <Reveal delay={0.3}>
-          <div className="mt-14 flex flex-col items-center gap-3 text-center">
+        {/* WhatsApp prompt with compact bottom margin */}
+        <Reveal delay={0.2}>
+          <div className="mt-10 flex flex-col items-center gap-2.5 text-center">
             <p className="text-sm text-mist-dim">
               Have a specific question about your gear, your window, or your route?
             </p>
             <a
               href={`mailto:${brand.email}`}
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-6 py-3 text-sm font-medium text-mist transition-all hover:border-ember/40 hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-6 py-2.5 text-xs font-medium text-mist transition-all hover:border-ember/40 hover:bg-white/10 sm:text-sm"
             >
               Ask us on WhatsApp · We reply in an hour
             </a>

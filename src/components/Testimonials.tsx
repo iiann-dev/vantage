@@ -30,7 +30,7 @@ export default function Testimonials() {
   )
 
   return (
-    <section id="stories" className="relative py-24 md:py-36">
+    <section id="stories" className="relative pt-20 pb-16 md:pt-28 md:pb-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12 flex flex-wrap items-end justify-between gap-8 md:mb-16">
           <Reveal className="max-w-2xl">

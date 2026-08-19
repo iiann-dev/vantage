@@ -10,7 +10,7 @@ export default function FaqSection() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section id="faq" className="relative py-24 md:py-36">
+    <section id="faq" className="relative pt-16 pb-16 md:pt-20 md:pb-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.6fr] lg:gap-24">
           <Reveal className="lg:sticky lg:top-28 lg:self-start">
