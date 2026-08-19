@@ -49,36 +49,40 @@ export default function ItineraryModal({ pkg, onClose }: Props) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.98 }}
             transition={{ duration: 0.45, ease: EASE }}
-            className="fixed inset-x-0 bottom-0 z-[110] mx-auto max-h-[92vh] w-full max-w-5xl overflow-hidden rounded-t-[2.5rem] border-t border-white/15 bg-ink-2 shadow-[0_-30px_120px_-20px_rgba(0,0,0,0.9)] sm:inset-x-4 sm:bottom-4 sm:rounded-[2.5rem] sm:border"
+            className="fixed inset-0 z-[120] mx-auto flex h-full w-full max-w-5xl flex-col overflow-hidden bg-ink-2 shadow-[0_-30px_120px_-20px_rgba(0,0,0,0.9)] sm:inset-y-6 sm:inset-x-4 sm:h-[calc(100vh-3rem)] sm:rounded-[2.5rem] sm:border sm:border-white/15"
           >
+            {/* Modal Header with Sticky Close Button */}
+            <div className="sticky top-0 z-20 flex items-center justify-between border-b border-white/10 bg-ink-2/90 px-6 py-4 backdrop-blur-md md:px-10">
+              <div className="flex items-center gap-2">
+                <span className="rounded-full glass px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-ember">
+                  {pkg.tag}
+                </span>
+                <span className="hidden rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-mist/80 sm:inline-block">
+                  {pkg.startCity} → {pkg.endCity}
+                </span>
+              </div>
+              <button
+                onClick={onClose}
+                aria-label="Close itinerary"
+                className="grid size-10 place-items-center rounded-full bg-white/10 text-mist transition-all hover:scale-105 hover:bg-ember hover:text-ink active:scale-95"
+              >
+                <X className="size-5" />
+              </button>
+            </div>
+
             <div
               ref={sheetRef}
-              className="no-scrollbar grain relative max-h-[92vh] overflow-y-auto"
+              className="no-scrollbar grain relative flex-1 overflow-y-auto"
             >
               {/* Hero image header */}
-              <div className="relative h-72 overflow-hidden md:h-96">
+              <div className="relative h-64 overflow-hidden md:h-80">
                 <img
                   src={thumb(pkg.image, 1280)}
                   alt={pkg.name}
                   className="h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink-2 via-ink-2/50 to-transparent" />
-                <button
-                  onClick={onClose}
-                  aria-label="Close itinerary"
-                  className="absolute right-5 top-5 grid size-11 place-items-center rounded-full bg-ink/75 text-mist backdrop-blur-md transition-all hover:scale-105 hover:bg-ink active:scale-95"
-                >
-                  <X className="size-5" />
-                </button>
-                <div className="absolute inset-x-0 bottom-0 p-8 md:p-12">
-                  <div className="mb-3 flex items-center gap-2">
-                    <span className="rounded-full glass px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-ember">
-                      {pkg.tag}
-                    </span>
-                    <span className="rounded-full border border-white/15 bg-white/5 px-3.5 py-1 text-xs text-mist/80">
-                      {pkg.startCity} → {pkg.endCity}
-                    </span>
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-ink-2 via-ink-2/40 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 md:p-10">
                   <h3 className="font-display text-3xl leading-[1.05] tracking-tight text-mist md:text-5xl">
                     {pkg.name}
                   </h3>

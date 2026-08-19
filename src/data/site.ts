@@ -60,7 +60,7 @@ export const tours = [
     headline: 'Chase the sun above the sea of clouds.',
     sub: 'Private sunrise safaris through the caldera of Mount Bromo. The dawn you will measure every other dawn against.',
     image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Mount_Bromo_at_sunrise%2C_showing_its_volcanoes_and_Mount_Semeru_%28background%29.jpg/1920px-Mount_Bromo_at_sunrise%2C_showing_its_volcanoes_and_Mount_Semeru_%28background%29.jpg',
+      'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=2560&q=90',
   },
   {
     id: 'ijen',
@@ -80,7 +80,7 @@ export const tours = [
     headline: 'Find the thousand falls hidden in the mist.',
     sub: 'A curtain of water a kilometer wide, canyon trails, and volcanic hot springs to end the day.',
     image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Air_Terjun_Tumpak_Sewu.jpg/1920px-Air_Terjun_Tumpak_Sewu.jpg',
+      'https://images.unsplash.com/photo-1605826832916-d0ea9d6fe71e?auto=format&fit=crop&w=2560&q=90',
   },
 ]
 

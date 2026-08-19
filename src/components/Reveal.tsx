@@ -34,7 +34,7 @@ export default function Reveal({
         scale: 1,
         filter: 'blur(0px)',
       }}
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.95, ease: EASE, delay }}
     >
       {children}

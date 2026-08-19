@@ -246,40 +246,45 @@ export default function ExpeditionGuide() {
                 <h3 className="mb-6 font-display text-2xl text-mist md:text-3xl">
                   Field-grade, on the mountain.
                 </h3>
-                <ul className="space-y-2.5">
-                  {expedition.gear.provided.map((g) => (
-                    <li key={g.name}>
-                      <button
-                        onClick={() => setOpenGear(openGear === g.name ? null : g.name)}
-                        className="flex w-full items-center justify-between gap-3 rounded-xl bg-white/5 px-4 py-3 text-left transition-colors hover:bg-white/10"
-                      >
-                        <span className="flex items-center gap-3">
-                          <span className="grid size-6 place-items-center rounded-full bg-ember/30 text-ember">
-                            <Check className="size-3" />
+                <ul className="space-y-3">
+                  {expedition.gear.provided.map((g) => {
+                    const isOpen = openGear === g.name
+                    return (
+                      <li key={g.name} className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:border-ember/30">
+                        <button
+                          onClick={() => setOpenGear(isOpen ? null : g.name)}
+                          className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left transition-colors hover:bg-white/[0.04]"
+                        >
+                          <span className="flex items-center gap-3">
+                            <span className={`grid size-7 shrink-0 place-items-center rounded-full transition-colors duration-300 ${isOpen ? 'bg-gradient-to-br from-ember to-ember-deep text-ink' : 'bg-ember/20 text-ember'}`}>
+                              <Check className="size-3.5" />
+                            </span>
+                            <span className="font-display text-base text-mist md:text-lg">{g.name}</span>
                           </span>
-                          <span className="text-sm font-medium text-mist">{g.name}</span>
-                        </span>
-                        <Plus
-                          className={`size-4 text-mist-dim transition-transform ${
-                            openGear === g.name ? 'rotate-45' : ''
-                          }`}
-                        />
-                      </button>
-                      <AnimatePresence>
-                        {openGear === g.name && (
-                          <motion.p
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3, ease: EASE }}
-                            className="overflow-hidden px-4 pt-2 text-xs leading-relaxed text-mist-dim"
-                          >
-                            {g.detail}
-                          </motion.p>
-                        )}
-                      </AnimatePresence>
-                    </li>
-                  ))}
+                          <Plus
+                            className={`size-4 text-mist-dim transition-transform duration-300 ${
+                              isOpen ? 'rotate-45 text-ember' : ''
+                            }`}
+                          />
+                        </button>
+                        <AnimatePresence initial={false}>
+                          {isOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.35, ease: EASE }}
+                              className="overflow-hidden"
+                            >
+                              <p className="px-5 pb-5 pl-14 text-xs leading-relaxed text-mist-dim md:text-sm">
+                                {g.detail}
+                              </p>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </li>
+                    )
+                  })}
                 </ul>
               </div>
 

@@ -43,7 +43,7 @@ export default function Hero() {
           aria-hidden={i !== active}
         >
           <img
-            src={preloaded[i] ? (i === 0 ? t.image : thumb(t.image, 1280)) : undefined}
+            src={preloaded[i] ? t.image : undefined}
             alt={t.name}
             decoding="async"
             className="kenburns h-full w-full object-cover"

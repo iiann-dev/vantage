@@ -8,7 +8,7 @@ export default function FinalCta() {
   const y = useTransform(scrollYProgress, [0.7, 1], [0, 80])
 
   return (
-    <section className="relative flex min-h-[90svh] items-center justify-center overflow-hidden pt-28 pb-32 md:pt-36 md:pb-40">
+    <section className="relative flex min-h-[90svh] items-center justify-center overflow-hidden pt-20 pb-32 md:pt-24 md:pb-40 bg-ink">
       {/* Parallax Background Image with smooth multi-stop gradient mask */}
       <motion.div style={{ y }} className="absolute inset-0">
         <img
