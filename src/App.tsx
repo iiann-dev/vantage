@@ -11,12 +11,14 @@ import FaqSection from './components/FaqSection'
 import Footer from './components/Footer'
 import Atmosphere from './components/Atmosphere'
 import ScrollProgress from './components/ScrollProgress'
+import ScrollBlur from './components/ScrollBlur'
 
 export default function App() {
   useLenis()
   return (
     <main className="relative min-h-screen bg-ink text-mist">
       <Atmosphere />
+      <ScrollBlur />
       <ScrollProgress />
       <Navbar />
       <div className="relative z-10">

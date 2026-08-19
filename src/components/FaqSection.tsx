@@ -10,9 +10,9 @@ export default function FaqSection() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section id="faq" className="relative pt-16 pb-16 md:pt-20 md:pb-20">
+    <section id="faq" className="relative pt-16 pb-12 md:pt-24 md:pb-16">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-16 lg:grid-cols-[1fr_1.6fr] lg:gap-24">
+        <div className="grid gap-14 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <Reveal className="lg:sticky lg:top-28 lg:self-start">
             <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-ember">
               {faq.label}
@@ -25,7 +25,7 @@ export default function FaqSection() {
             </p>
             <a
               href={`mailto:${brand.email}`}
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-ember to-ember-deep px-6 py-3 text-sm font-semibold text-ink transition-transform duration-200 hover:scale-[1.04] active:scale-[0.97]"
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-ember to-ember-deep px-6 py-3 text-sm font-semibold text-ink shadow-lg shadow-ember/20 transition-transform duration-200 hover:scale-[1.04] active:scale-[0.97]"
             >
               Message the team
             </a>
@@ -36,7 +36,7 @@ export default function FaqSection() {
               {faq.items.map((item, i) => {
                 const isOpen = open === i
                 return (
-                  <Reveal key={item.q} delay={0.04 * i}>
+                  <Reveal key={item.q} delay={0.03 * i}>
                     <div
                       className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
                         isOpen
@@ -47,11 +47,11 @@ export default function FaqSection() {
                       <button
                         onClick={() => setOpen(isOpen ? null : i)}
                         aria-expanded={isOpen}
-                        className="flex w-full items-center justify-between gap-6 px-5 py-5 text-left transition-colors hover:bg-white/[0.04] md:px-6"
+                        className="flex w-full items-center justify-between gap-6 px-5 py-4.5 text-left transition-colors hover:bg-white/[0.04] md:px-6"
                       >
                         <span className="flex items-center gap-4">
                           <span
-                            className={`grid size-9 shrink-0 place-items-center rounded-full text-xs font-bold transition-all ${
+                            className={`grid size-8 shrink-0 place-items-center rounded-full text-xs font-bold transition-all ${
                               isOpen
                                 ? 'bg-gradient-to-br from-ember to-ember-deep text-ink'
                                 : 'border border-white/15 text-mist-dim'
@@ -75,10 +75,10 @@ export default function FaqSection() {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.4, ease: EASE }}
+                            transition={{ duration: 0.35, ease: EASE }}
                             className="overflow-hidden"
                           >
-                            <p className="px-5 pb-6 pl-[4.25rem] pr-6 text-sm leading-relaxed text-mist-dim md:text-base">
+                            <p className="px-5 pb-6 pl-[3.75rem] pr-6 text-sm leading-relaxed text-mist-dim md:text-base">
                               {item.a}
                             </p>
                           </motion.div>
@@ -90,14 +90,14 @@ export default function FaqSection() {
               })}
             </div>
 
-            <Reveal delay={0.4}>
-              <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+            <Reveal delay={0.3}>
+              <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.02] p-5 md:p-6">
                 <p className="text-sm leading-relaxed text-mist-dim">
                   Still wondering something? We answer WhatsApp within an hour, Surabaya time.
                 </p>
                 <a
                   href={`mailto:${brand.email}`}
-                  className="mt-3 inline-flex text-sm font-semibold text-ember transition-colors hover:text-mist"
+                  className="mt-2.5 inline-flex text-sm font-semibold text-ember transition-colors hover:text-mist"
                 >
                   {brand.email} →
                 </a>
