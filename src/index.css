@@ -48,6 +48,12 @@ html {
   scroll-behavior: auto;
 }
 
+/* ---- content-visibility optimization for phone rendering performance ---- */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 600px;
+}
+
 body {
   background: var(--color-ink);
   color: var(--color-mist);

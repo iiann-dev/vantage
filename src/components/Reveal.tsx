@@ -26,7 +26,7 @@ export default function Reveal({
         opacity: 0,
         y: reduce ? 0 : y,
         scale: reduce ? 1 : scale,
-        filter: blur && !reduce ? 'blur(8px)' : 'none',
+        filter: blur && !reduce ? 'blur(3px)' : 'none',
       }}
       whileInView={{
         opacity: 1,

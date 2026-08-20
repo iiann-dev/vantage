@@ -80,7 +80,7 @@ export const tours = [
     headline: 'Find the thousand falls hidden in the mist.',
     sub: 'A curtain of water a kilometer wide, canyon trails, and volcanic hot springs to end the day.',
     image:
-      'https://images.unsplash.com/photo-1605826832916-d0ea9d6fe71e?auto=format&fit=crop&w=2560&q=90',
+      'https://images.unsplash.com/photo-1703854138568-b0991721b139?auto=format&fit=crop&w=2560&q=90',
   },
 ]
 
