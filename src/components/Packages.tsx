@@ -1,9 +1,8 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'motion/react'
-import { ArrowUpRight, Mountain, Clock, Users, BookOpen, Sparkles } from 'lucide-react'
+import { ArrowUpRight, Mountain, Clock, Users, Sparkles } from 'lucide-react'
 import { brand, packages, thumb } from '../data/site'
 import Reveal from './Reveal'
-import ItineraryModal from './ItineraryModal'
 
 // Combine featured and items into one unified balanced grid of 4 cards
 const allPackages = [packages.featured, ...packages.items]
@@ -15,7 +14,6 @@ export default function Packages() {
     offset: ['start end', 'end start'],
   })
   const y = useTransform(scrollYProgress, [0, 1], [30, -30])
-  const [open, setOpen] = useState<(typeof allPackages)[number] | null>(null)
 
   return (
     <section id="tours" ref={sectionRef} className="relative py-20 md:py-28">
@@ -101,23 +99,13 @@ export default function Packages() {
                         </p>
                       </div>
 
-                      <div className="flex items-center gap-2.5">
-                        <button
-                          type="button"
-                          onClick={() => setOpen(p)}
-                          className="inline-flex items-center gap-2 rounded-full glass px-4 py-3 text-xs font-semibold text-mist backdrop-blur-md transition-all hover:bg-white/20 active:scale-95 sm:px-5 sm:text-sm"
-                        >
-                          <BookOpen className="size-4" />
-                          Itinerary
-                        </button>
-                        <a
-                          href={`mailto:${brand.email}?subject=${encodeURIComponent(p.name)}`}
-                          className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-br from-ember to-ember-deep px-5 py-3 text-xs font-semibold text-ink shadow-lg shadow-ember/25 transition-transform duration-200 hover:scale-[1.04] active:scale-[0.96] sm:px-6 sm:text-sm"
-                        >
-                          Reserve
-                          <ArrowUpRight className="size-4" />
-                        </a>
-                      </div>
+                      <a
+                        href={`mailto:${brand.email}?subject=${encodeURIComponent(p.name)}`}
+                        className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-br from-ember to-ember-deep px-6 py-3 text.sm font-semibold text-ink shadow-lg shadow-ember/25 transition-transform duration-200 hover:scale-[1.04] active:scale-[0.96]"
+                      >
+                        Reserve
+                        <ArrowUpRight className="size-4" />
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -133,8 +121,6 @@ export default function Packages() {
           </p>
         </Reveal>
       </div>
-
-      <ItineraryModal pkg={open} onClose={() => setOpen(null)} />
     </section>
   )
 }
