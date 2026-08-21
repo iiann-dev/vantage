@@ -37,7 +37,10 @@ export default function Packages() {
               <Reveal key={p.id} delay={0.08 * i}>
                 <div className="group relative flex h-full min-h-[32rem] flex-col justify-end overflow-hidden rounded-[1.75rem] border border-white/10 bg-panel/60 p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] transition-all duration-500 hover:-translate-y-1.5 hover:border-ember/40 hover:shadow-ember/10 md:min-h-[36rem] md:p-10">
                   {/* Background Image with parallax */}
-                  <motion.div style={{ y }} className="absolute inset-0 -z-10">
+                  <motion.div
+                    style={{ y }}
+                    className="absolute inset-[-2rem] -z-10 rounded-[1.75rem] overflow-hidden"
+                  >
                     <img
                       src={thumb(p.image, 1280)}
                       alt={p.name}
