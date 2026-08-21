@@ -43,7 +43,7 @@ export default function Packages() {
                       alt={p.name}
                       loading="lazy"
                       decoding="async"
-                      className="h-[115%] w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+                      className="block h-[115%] w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
                     />
                   </motion.div>
 
